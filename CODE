@@ -1,0 +1,78 @@
+#include <iostream>
+
+using namespace std;
+double a;
+void inputs (double&mcblevel, double&fcblevel);
+void psquare (double&mcblevel, double&fcblevel);
+
+
+int main()
+{
+    double mcblevel, fcblevel;
+    inputs(mcblevel, fcblevel);
+    psquare(mcblevel, fcblevel);
+    return 0;
+}
+void inputs (double& mcblevel, double& fcblevel){
+    cout << "If The Male Is Color Blind Type '1' Or If The Male Is Not Color Blind Type '2': ";
+    cin >> mcblevel;
+    cout << endl << "If The Female Is Color Blind Type '1', If The Female Is Not Color Blind Type '2', Or If The Female Is A Carrier Type'3': ";
+    cin >> fcblevel;
+}
+void psquare (double &mcblevel, double& fcblevel){
+    if (fcblevel==1){
+       if (mcblevel == 1){
+            cout << "         Xb    |   Xb    "<< endl;
+            cout << "    |--------------------|"<< endl;
+            cout << " Xb |   XbXb   |  XbXb   |"<< endl;
+            cout << " -  |--------------------|"<< endl;
+            cout << " Y  |    XbY   |   XbY   |"<< endl;
+            cout << "    |--------------------|"<< endl;
+       }
+       else if (mcblevel == 2){
+            cout << "         Xb    |   Xb    "<< endl;
+            cout << "    |--------------------|"<< endl;
+            cout << " XB |   XBXb   |  XBXb   |"<< endl;
+            cout << " -  |--------------------|"<< endl;
+            cout << " Y  |    XbY   |   XbY   |"<< endl;
+            cout << "    |--------------------|"<< endl;
+       }
+    }
+    if (fcblevel==2){
+        if (mcblevel == 1){
+            cout << "         XB    |   XB    "<< endl;
+            cout << "    |--------------------|"<< endl;
+            cout << " Xb |   XBXb   |  XBXb   |"<< endl;
+            cout << " -  |--------------------|"<< endl;
+            cout << " Y  |    XBY   |   XBY   |"<< endl;
+            cout << "    |--------------------|"<< endl;
+       }
+       else if (mcblevel == 2){
+            cout << "         XB    |   XB    "<< endl;
+            cout << "    |--------------------|"<< endl;
+            cout << " XB |   XBXB   |  XBXB   |"<< endl;
+            cout << " -  |--------------------|"<< endl;
+            cout << " Y  |    XBY   |   XBY   |"<< endl;
+            cout << "    |--------------------|"<< endl;
+       }
+    }
+    while (fcblevel == 3){
+        if (mcblevel ==1){
+            cout << "         XB    |   Xb    "<< endl;
+            cout << "    |--------------------|"<< endl;
+            cout << " Xb |   XBXb   |  XbXb   |"<< endl;
+            cout << " -  |--------------------|"<< endl;
+            cout << " Y  |    XBY   |   XbY   |"<< endl;
+            cout << "    |--------------------|"<< endl;
+       }
+       else if (mcblevel == 2){
+            cout << "         XB    |   Xb    "<< endl;
+            cout << "    |--------------------|"<< endl;
+            cout << " XB |   XBXB   |  XBXb   |"<< endl;
+            cout << " -  |--------------------|"<< endl;
+            cout << " Y  |    XBY   |   XbY   |"<< endl;
+            cout << "    |--------------------|"<< endl;
+       }
+    }
+}
+
