@@ -1,77 +1,123 @@
 #include <iostream>
 
 using namespace std;
-double a;
-void inputs (double&mcblevel, double&fcblevel);
-void psquare (double&mcblevel, double&fcblevel);
+void inputs (double&mcblevel, double&fcblevel); //Creating my input function
+void psquare (double&mcblevel, double&fcblevel); // Creating my punnett square function
 
 
 int main()
 {
-    double mcblevel, fcblevel;
-    inputs(mcblevel, fcblevel);
-    psquare(mcblevel, fcblevel);
+    double mcblevel, fcblevel; // Defining my variables
+    cout << "--------------------------------------------" << endl; // Main title screen
+    cout << "|                                          |" << endl;
+    cout << "|   This program will ask if the dad is    |" << endl;
+    cout << "|   color blind or not. It will also ask   |" << endl;
+    cout << "|    if the mother is a carrier, color     |" << endl;
+    cout << "|   blind, or not color blind. With this   |" << endl;
+    cout << "|    information it will create a punnett  |" << endl;
+    cout << "|   square where a capital B indicates a   |" << endl;
+    cout << "|   normal x linked trait while a lower    |" << endl;
+    cout << "|   case b will indicate a mutated trait.  |" << endl;
+    cout << "|                                          |" << endl;
+    cout << "--------------------------------------------" << endl;
+    inputs(mcblevel, fcblevel); // Inputs function
+    psquare(mcblevel, fcblevel); // Punnett sqaure function
     return 0;
 }
 void inputs (double& mcblevel, double& fcblevel){
     cout << "If The Male Is Color Blind Type '1' Or If The Male Is Not Color Blind Type '2': ";
-    cin >> mcblevel;
-    cout << endl << "If The Female Is Color Blind Type '1', If The Female Is Not Color Blind Type '2', Or If The Female Is A Carrier Type'3': ";
+    cin >> mcblevel; // Takes input for male color blind level
+    while (cin.fail() || mcblevel >= 3){ // If it is not a good value such as 9 it will ask you to type another
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << endl << "Please Enter A '1' Or A '2': ";
+            cin >> mcblevel;
+        }
+        if (mcblevel >= 3){
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << endl << "Please Enter A '1' Or A '2': ";
+            cin >> mcblevel;
+        }
+    }
+    cout << endl << "If The Female Is Color Blind Type '1', If The Female Isn't Color Blind Type '2',If The Female Is A Carrier Type'3': ";
     cin >> fcblevel;
+    while (cin.fail() || fcblevel >= 4){ // If it is not a good value such as 9 it will ask you to type another
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << endl << "Please Enter A '1', A '2', Or A '3': ";
+            cin >> fcblevel;
+        }
+        if (fcblevel >= 4){
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << endl << "Please Enter A '1', A '2', Or A '3': ";
+            cin >> fcblevel;
+        }
+    }
 }
-void psquare (double &mcblevel, double& fcblevel){
+void psquare (double &mcblevel, double& fcblevel){ // Punnett squares for male and female color blind levels
     if (fcblevel==1){
        if (mcblevel == 1){
-            cout << "         Xb    |   Xb    "<< endl;
-            cout << "    |--------------------|"<< endl;
-            cout << " Xb |   XbXb   |  XbXb   |"<< endl;
-            cout << " -  |--------------------|"<< endl;
-            cout << " Y  |    XbY   |   XbY   |"<< endl;
-            cout << "    |--------------------|"<< endl;
+            cout << "               Female"<< endl;
+            cout << "            Xb    |   Xb    "<< endl;
+            cout << " M     |--------------------|"<< endl;
+            cout << " a  Xb |   XbXb   |  XbXb   |"<< endl;
+            cout << " l  -  |--------------------|"<< endl;
+            cout << " e  Y  |    XbY   |   XbY   |"<< endl;
+            cout << "       |--------------------|"<< endl;
        }
        else if (mcblevel == 2){
-            cout << "         Xb    |   Xb    "<< endl;
-            cout << "    |--------------------|"<< endl;
-            cout << " XB |   XBXb   |  XBXb   |"<< endl;
-            cout << " -  |--------------------|"<< endl;
-            cout << " Y  |    XbY   |   XbY   |"<< endl;
-            cout << "    |--------------------|"<< endl;
+            cout << "               Female"<< endl;
+            cout << "            Xb    |   Xb    "<< endl;
+            cout << " M     |--------------------|"<< endl;
+            cout << " a  XB |   XBXb   |  XBXb   |"<< endl;
+            cout << " l  -  |--------------------|"<< endl;
+            cout << " e  Y  |    XbY   |   XbY   |"<< endl;
+            cout << "       |--------------------|"<< endl;
        }
     }
-    if (fcblevel==2){
+    else if (fcblevel==2){
         if (mcblevel == 1){
-            cout << "         XB    |   XB    "<< endl;
-            cout << "    |--------------------|"<< endl;
-            cout << " Xb |   XBXb   |  XBXb   |"<< endl;
-            cout << " -  |--------------------|"<< endl;
-            cout << " Y  |    XBY   |   XBY   |"<< endl;
-            cout << "    |--------------------|"<< endl;
+            cout << "               Female"<< endl;
+            cout << "            XB    |   XB    "<< endl;
+            cout << " M     |--------------------|"<< endl;
+            cout << " a  Xb |   XBXb   |  XBXb   |"<< endl;
+            cout << " l  -  |--------------------|"<< endl;
+            cout << " e  Y  |    XBY   |   XBY   |"<< endl;
+            cout << "       |--------------------|"<< endl;
        }
        else if (mcblevel == 2){
-            cout << "         XB    |   XB    "<< endl;
-            cout << "    |--------------------|"<< endl;
-            cout << " XB |   XBXB   |  XBXB   |"<< endl;
-            cout << " -  |--------------------|"<< endl;
-            cout << " Y  |    XBY   |   XBY   |"<< endl;
-            cout << "    |--------------------|"<< endl;
+            cout << "               Female"<< endl;
+            cout << "          XB    |   XB    "<< endl;
+            cout << " M     |--------------------|"<< endl;
+            cout << " a  XB |   XBXB   |  XBXB   |"<< endl;
+            cout << " l  -  |--------------------|"<< endl;
+            cout << " e  Y  |    XBY   |   XBY   |"<< endl;
+            cout << "       |--------------------|"<< endl;
        }
     }
     else if (fcblevel == 3){
         if (mcblevel ==1){
-            cout << "         XB    |   Xb    "<< endl;
-            cout << "    |--------------------|"<< endl;
-            cout << " Xb |   XBXb   |  XbXb   |"<< endl;
-            cout << " -  |--------------------|"<< endl;
-            cout << " Y  |    XBY   |   XbY   |"<< endl;
-            cout << "    |--------------------|"<< endl;
+            cout << "               Female"<< endl;
+            cout << "            XB    |   Xb    "<< endl;
+            cout << " M     |--------------------|"<< endl;
+            cout << " a  Xb |   XBXb   |  XbXb   |"<< endl;
+            cout << " l  -  |--------------------|"<< endl;
+            cout << " e  Y  |    XBY   |   XbY   |"<< endl;
+            cout << "       |--------------------|"<< endl;
        }
        else if (mcblevel == 2){
-            cout << "         XB    |   Xb    "<< endl;
-            cout << "    |--------------------|"<< endl;
-            cout << " XB |   XBXB   |  XBXb   |"<< endl;
-            cout << " -  |--------------------|"<< endl;
-            cout << " Y  |    XBY   |   XbY   |"<< endl;
-            cout << "    |--------------------|"<< endl;
+            cout << "               Female"<< endl;
+            cout << "            XB    |   Xb    "<< endl;
+            cout << " M     |--------------------|"<< endl;
+            cout << " a  XB |   XBXB   |  XBXb   |"<< endl;
+            cout << " l  -  |--------------------|"<< endl;
+            cout << " e  Y  |    XBY   |   XbY   |"<< endl;
+            cout << "       |--------------------|"<< endl;
        }
     }
 }
+
